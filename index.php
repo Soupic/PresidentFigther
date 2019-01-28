@@ -10,5 +10,5 @@ $poutine = new President("Vladimir", "Poutine", "Russie", 90, 17);
 $playerOne = new Player("Michel", $macron);
 $playerTwo = new Player("Pierre Emmanuel", $trump);
 
-$persidentFighter = new PresidentFigther($playerOne, $playerTwo);
+$persidentFighter = new PresidentFighter($playerOne, $playerTwo);
 

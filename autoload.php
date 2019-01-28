@@ -4,7 +4,6 @@
 spl_autoload_register(function($className){
     // on récupère le chemin fourni par le namespace
     $pathFragments = explode('\\', $className);
-    // var_dump($pathFragments);
    $path = implode(DIRECTORY_SEPARATOR, $pathFragments) . ".php";
    require $path; 
 });
