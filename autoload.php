@@ -6,6 +6,5 @@ spl_autoload_register(function($className){
     $pathFragments = explode('\\', $className);
     // var_dump($pathFragments);
    $path = implode(DIRECTORY_SEPARATOR, $pathFragments) . ".php";
-   var_dump($path);
    require $path; 
 });
