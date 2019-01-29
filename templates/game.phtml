@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <?php if (isset($data)) { ?>
+        <div>
+            <h2>Résultat du match</h2>
+            <h3>Gagnant du match : <?= $data->getName() ?></h3>
+            <p>Avec comme tocard : <?= $data->getPresident()->getFullName() ?></p>
+        </div>
+    <?php } else { ?>
+        <div>
+            <h2>Pas de résultats</h2>
+        </div>
+    <?php } ?>
+    <div>
+        <a href="newPresident"><input type="button" value="Ajoutez president"></a>
+    </div>
+</body>
+</html>

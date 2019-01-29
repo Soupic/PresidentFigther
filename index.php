@@ -4,8 +4,12 @@ require 'autoload.php';
 use Controller\President;
 use Controller\Player;
 use Controller\PresidentFighter;
-use View\WinnerView;
+use View\PresidentFighterView;
+use Http\SimpleRequestParser;
 
+
+$simpleRequestParser = new SimpleRequestParser();
+$action = $simpleRequestParser->getAction();
 // Instanciation des différents présidents
 // Odres des propriétées:
 // Prénom, Nom, Pays, Vie, Force
@@ -21,9 +25,17 @@ $playerTwo = new Player("Pierre Emmanuel", $macron);
 $persidentFighter = new PresidentFighter($playerOne, $playerTwo);
 // Début du jeu
 // La fonction retourne le gagnant
-$winner = $persidentFighter->start();
+// On récupère la valeur définit dans le tableau action
+// pour la définir comme fonction de notre objet
+// $winner = $persidentFighter->{$action["method"]}();
+// Voir avec pierre
+// Appel la fonction fourni en premier argument
+$data = call_user_func([$persidentFighter, $action['method']], $action['arg']);
 
-echo WinnerView::displayWinner($winner);
+$persidentFighterView = new PresidentFighterView();
+$persidentFighterView->display($action['template'],$data);
+
+// echo WinnerView::displayWinner($data);
 // echo("<pre>");
 // var_dump($winner);
 // echo "</pre>";

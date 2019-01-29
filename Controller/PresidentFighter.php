@@ -40,7 +40,7 @@ class PresidentFighter
 
         // A tour de role les présidents ce tape, jusqu'a ce que l'un des deux soit à 0 PV   
         // vie - force
-        // (($lifePresidentOne > 0) && ($lifePresidentTwo <= 0)) || (($lifePresidentOne <= 0) && ($lifePresidentTwo > 0))
+        // La boucle continuera si les deux personnages on encore de la vie
         while (($lifePresidentOne > 0) && ($lifePresidentTwo > 0)) {
             $lifePresidentTwo = $lifePresidentTwo - $presidentPlayerOne->getStrength();
             $lifePresidentOne = $lifePresidentOne - $presidentPlayerTwo->getStrength();
@@ -58,6 +58,12 @@ class PresidentFighter
         return $winnerFight;
     }
 
+    /**
+     * Retourne le joureur gagnant
+     *
+     * @param objet $winnerFight
+     * @return objet
+     */
     private function winnerIs($winnerFight)
     {
         $winnerLastName = $winnerFight->getLastName();

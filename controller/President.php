@@ -69,6 +69,16 @@ class President
     }
 
     /**
+     * Undocumented function
+     *
+     * @param integer $life
+     */
+    public function setLife(int $life)
+    {
+        $this->life = $life;
+    }
+
+    /**
      * Retourne les points d'attaque du président
      *
      * @return integer
@@ -76,6 +86,16 @@ class President
     public function getStrength()
     {
         return $this->strength;
+    }
+
+    /**
+     * Retourne le nom complet du président
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->firstName . " " . $this->lastName;
     }
 
 }
