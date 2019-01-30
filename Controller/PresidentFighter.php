@@ -14,10 +14,13 @@ class PresidentFighter
 
     private $fightResult;
 
-    public function __construct($playerOne, $playerTwo)
+    private $provider;
+
+    public function __construct($playerOne, $playerTwo, $provider)
     {
         $this->playerOne = $playerOne;
         $this->playerTwo = $playerTwo;
+        $this->provider = $provider;
     }
 
     public function start()
