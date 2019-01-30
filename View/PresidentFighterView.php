@@ -6,7 +6,8 @@ class PresidentFighterView
 {
     public function display($template, $data)
     {
-    //    extract($data);
+        var_dump($data);
+       extract($data);
        include __DIR__ . '/../templates/' . $template . '.phtml';
     }
 }

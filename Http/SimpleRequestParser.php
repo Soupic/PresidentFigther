@@ -19,13 +19,11 @@ class SimpleRequestParser
             "method" => "start",
             "template" => "game",
         ],
-        "/newPresisent" => [
+        "newPresident" => [
             "class" => "PresidentFighter",
             "method" => "newPresident",
             "template" => "newForm",
         ],
-        "/editPresident" => [],
-        "/deletePresident" => [],
     ];
 
     public function getAction()
@@ -38,11 +36,14 @@ class SimpleRequestParser
         }
 
         foreach (self::AVAILABLE_QUERIES as $prefix => $queryConfig) {
-            if (strpos($query, $prefix) === 0) {
-                if (isset($_GET["q"])) {
+            // var_dump("Strpos ",strpos($prefix, $query));
+            if (strpos($prefix, $query) === 0) {
+                if (isset($_GET["arg"])) {
+                    // var_dup($_GET["q"]);
                     // On fusionne dans un tableau assiciatif le contenu de $_GET
                     return array_merge($queryConfig, ["arg" => $_GET['arg']]);
                 } else {
+                    // var_dump($query);
                     return array_merge($queryConfig, ["arg" => ""]);
                 }
             }

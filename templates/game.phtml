@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <?php var_dump($data); ?>
     <?php if (isset($data)) { ?>
         <div>
             <h2>Résultat du match</h2>
-            <h3>Gagnant du match : <?= $data->getName() ?></h3>
-            <p>Avec comme tocard : <?= $data->getPresident()->getFullName() ?></p>
+            <h3>Gagnant du match : <?= $winner->getName() ?></h3>
+            <p>Avec comme président : <?= $winner->getPresident()->getFullName() ?></p>
         </div>
     <?php } else { ?>
         <div>
@@ -19,7 +20,7 @@
         </div>
     <?php } ?>
     <div>
-        <a href="newPresident"><input type="button" value="Ajoutez president"></a>
+        <a href="?q=newPresident"><input type="button" value="Ajoutez president"></a>
     </div>
 </body>
 </html>

@@ -123,4 +123,14 @@ class President
         $this->life = $life;
     }
 
+    /**
+     * Retourne le nom complet du président
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->firstName . " " . $this->lastName;
+    }
+
 }

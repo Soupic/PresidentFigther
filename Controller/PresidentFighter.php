@@ -8,12 +8,6 @@ class PresidentFighter
 
     private $playerTwo;
 
-    private $round = 0;
-
-    private $message;
-
-    private $fightResult;
-
     private $provider;
 
     public function __construct($playerOne, $playerTwo, $provider)
@@ -76,6 +70,12 @@ class PresidentFighter
             $winner = $this->playerTwo;
         }
 
-        return $winner;
+        return ["winner" => $winner];
+    }
+
+    public function newPresident()
+    {
+        var_dump($_POST);
+        return [];
     }
 }
