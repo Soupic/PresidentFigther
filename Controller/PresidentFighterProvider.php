@@ -16,4 +16,23 @@ class PresidentFighterProvider
             ->query("SELECT lastName FROM President")
             ->fetchAll();
     }
+
+    public function addNewPresident(
+        string $firstName,
+        string $lastName,
+        string $country,
+        int $life,
+        int $strength
+    ){
+            $stmt = $this->dbh
+            ->prepare("INSERT INTO President (firstName, lastName, country, life, strength)
+             VALUES ($firstName, $lastName, $country, $life, $strength)");
+            $stmt->bindParam(":firstName", $firstName, PDO::PARAM_STR);
+            $stmt->bindParam(":lastName", $lastName, PDO::PARAM_STR);
+            $stmt->bindParam(":country", $country, PDO::PARAM_STR);
+            $stmt->bindParam(":life", $life, PDO::PARAM_INT);
+            $stmt->bindParam(":strength", $strength, PDO::PARAM_INT);
+            $stmt->execute();
+
+    }
 }
