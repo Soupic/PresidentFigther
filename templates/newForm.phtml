@@ -10,27 +10,27 @@
 <body>
     <form action="" method="post">
         <div>
-            <?php foreach($firstName as $error): ?>
+            <?php foreach($errors['firstName'] as $error): ?>
             <p class="error"><?= $error ?></p>
             <?php endforeach; ?>
             <label for="firstName">Prénom du président :</label>
-            <input type="text" name="firstName" id="firstName" required>
+            <input type="text" name="firstName" id="firstName" required value="<?= htmlentities($data['firstName'])?>">
         </div>
         <div>
             <label for="lastName">Nom du président</label>
-            <input type="text" name="lastName" id="lastName" required>
+            <input type="text" name="lastName" id="lastName" required value="<?= htmlentities($data['lastName'])?>">
         </div>
         <div>
             <label for="country">Pays du président :</label>
-            <input type="text" name="country" id="country" required>
+            <input type="text" name="country" id="country" required value="<?= htmlentities($data['country'])?>">
         </div>
         <div>
             <label for="life">Vie du président :</label>
-            <input type="number" name="life" id="life" required>
+            <input type="number" name="life" id="life" required value="<?= htmlentities($data['life'])?>">
         </div>
         <div>
             <label for="strength">Force du président :</label>
-            <input type="number" name="strength" id="strength" required>
+            <input type="number" name="strength" id="strength" required value="<?= htmlentities($data['strength'])?>">
         </div>
         <input type="submit" value="Envoyez">
     </form>

@@ -11,47 +11,51 @@ namespace Form;
 class PresidentValidator
 {
 
-    public function validate(array $presidentData)
+    public function handle(array &$form, array $presidentData)
     {
-        $errors = [
-            'total_errors' => 0,
-            'firstName' => [],
-            'lastName' => [],
-            'country' => [],
-            'life' => [],
-            'strength' => [],
-        ];
+        $this->hydrate($form['data'], $presidentData);
+        $this->validate($form['errors'], $form['data']);
+    }
 
-        if (!key_exists('firstName', $presidentData)) {
-            $errors['firstName'][] = 'Le prénom est obligatoire';
-            $errors['total_errors']++;
+    private function hydrate(array &$data, array $presidentData)
+    {
+        foreach ($data as $fieldName => $fieldValue) {
+            $data[$fieldName] = $presidentData[$fieldName] ?? '';
+        }
+    }
+
+    private function validate(array &$data, array $presidentData)
+    {
+        if (empty($presidentData['firstName'])) {
+            $data['firstName'][] = 'Le prénom est obligatoire';
+            $data['total_errors']++;
         } else {
-            if (2 >= mb_strlen($presidentData['firstName'])) {
-                $errors['firstName'][] = 'Le prénom doit avoir au moins 2 caractères';
-                $errors['total_errors']++;
+            if (2 > mb_strlen($presidentData['firstName'])) {
+                $data['firstName'][] = 'Le prénom doit avoir au moins 2 caractères';
+                $data['total_errors']++;
             }
 
-            if (50 <= mb_strlen($presidentData['firstName'])) {
-                $errors['firstName'][] = 'Le prénom doit avoir au plus 50 caractères';
-                $errors['total_errors']++;
+            if (50 < mb_strlen($presidentData['firstName'])) {
+                $data['firstName'][] = 'Le prénom doit avoir au plus 50 caractères';
+                $data['total_errors']++;
             }
         }
 
-        if (!key_exists('lastName', $presidentData)) {
-            $errors['lastName'][] = 'Le nom de famille est obligatoire';
-            $errors['total_errors']++;
+        if (empty($presidentData['lastName'])) {
+            $data['lastName'][] = 'Le nom de famille est obligatoire';
+            $data['total_errors']++;
         } else {
-            if (2 >= mb_strlen($presidentData['firstName'])) {
-                $errors['lastName'][] = 'Le nom de famille doit avoir au moins 2 caractères';
-                $errors['total_errors']++;
+            if (2 > mb_strlen($presidentData['firstName'])) {
+                $data['lastName'][] = 'Le nom de famille doit avoir au moins 2 caractères';
+                $data['total_errors']++;
             }
 
-            if (50 <= mb_strlen($presidentData['firstName'])) {
-                $errors['lastName'][] = 'Le nom de famille doit avoir au plus 50 caractères';
-                $errors['total_errors']++;
+            if (50 < mb_strlen($presidentData['firstName'])) {
+                $data['lastName'][] = 'Le nom de famille doit avoir au plus 50 caractères';
+                $data['total_errors']++;
             }
         }
 
-        return $errors;
+        return $form;
     }
 }

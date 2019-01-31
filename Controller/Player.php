@@ -15,7 +15,7 @@ class Player
     /**
      * Président choisi par le joueur
      *
-     * @var Objet President
+     * @var President
      */
     private $president;
 
@@ -23,7 +23,7 @@ class Player
      * Fonction construc de l'objet
      *
      * @param string $name
-     * @param Objet $president
+     * @param President $president
      */
     public function __construct($name, $president)
     {
@@ -44,7 +44,7 @@ class Player
     /**
      * Retourne le président choisi par le joueur
      *
-     * @return Objet
+     * @return President
      */
     public function getPresident()
     {

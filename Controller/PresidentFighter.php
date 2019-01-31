@@ -13,7 +13,7 @@ class PresidentFighter
 
     private $provider;
 
-    public function __construct($playerOne, $playerTwo, $provider)
+    public function __construct(Player $playerOne, Player $playerTwo, $provider)
     {
         $this->playerOne = $playerOne;
         $this->playerTwo = $playerTwo;
@@ -31,7 +31,7 @@ class PresidentFighter
         return $this->winnerIs($winnerFight);
     }
 
-    private function attack($presidentPlayerOne, $presidentPlayerTwo)
+    private function attack(President $presidentPlayerOne, President $presidentPlayerTwo)
     {
         // On récupère la vie de base des président
         $lifePresidentOne = $presidentPlayerOne->getLife();
@@ -80,25 +80,36 @@ class PresidentFighter
 
     public function newPresident()
     {
+        $form = [
+            'errors' => [
+                'total_errors' => 0,
+                'firstName' => [],
+                'lastName' => [],
+                'country' => [],
+                'life' => [],
+                'strength' => [],
+            ],
+            'data' => [
+                'firstName' => '',
+                'lastName' => '',
+                'country' => '',
+                'life' => '',
+                'strength' => '',
+            ],
+        ];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $validator = new PresidentValidator();
-            $validationErrors = $validator->validate($_POST);
+            $validator->handle($form, $_POST);
 
-            if (0 < $validationErrors['total_errors']) {
-                return $validationErrors;
+            if (0 < $form['errors']['total_errors']) {
+                return $form;
             }
 
             $this->provider->addNewPresident($_POST['firstName'],
                 $_POST['lastName'], $_POST['country'], $_POST['life'],
                 $_POST['strength']);
         }
-        return [
-            'total_errors' => 0,
-            'firstName' => [],
-            'lastName' => [],
-            'country' => [],
-            'life' => [],
-            'strength' => [],
-        ];
+        return $form;
     }
 }
