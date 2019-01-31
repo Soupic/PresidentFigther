@@ -4,6 +4,7 @@ namespace Controller;
 
 class President
 {
+
     /**
      * Prénom du président
      *
@@ -54,7 +55,7 @@ class President
         $country,
         $life,
         $strength
-    ){
+    ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->country = $country;
@@ -71,7 +72,7 @@ class President
     {
         return $this->firstName;
     }
-    
+
     /**
      * Retourne la nom de famille du président
      *
@@ -81,7 +82,7 @@ class President
     {
         return $this->lastName;
     }
-    
+
     /**
      * retourne le pays du président
      *
@@ -91,7 +92,7 @@ class President
     {
         return $this->country;
     }
-    
+
     /**
      * Retourne la vie du président
      *
@@ -116,6 +117,7 @@ class President
      * Met à jour la vie du président
      *
      * @param integer $life
+     *
      * @return integer
      */
     public function setLife($life)

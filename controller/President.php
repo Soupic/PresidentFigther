@@ -4,6 +4,7 @@ namespace controller;
 
 class President
 {
+
     private $firstName;
 
     private $lastName;
@@ -20,7 +21,7 @@ class President
         $country,
         $life,
         $strength
-    ){
+    ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->country = $country;
@@ -37,7 +38,7 @@ class President
     {
         return $this->firstName;
     }
-    
+
     /**
      * Retourne la nom de famille du président
      *
@@ -47,7 +48,7 @@ class President
     {
         return $this->lastName;
     }
-    
+
     /**
      * retourne le pays du président
      *
@@ -57,7 +58,7 @@ class President
     {
         return $this->country;
     }
-    
+
     /**
      * Retourne la vie du président
      *

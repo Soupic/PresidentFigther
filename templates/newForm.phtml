@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
     <title>Ajout d'un président</title>
 </head>
 <body>
     <form action="" method="post">
-        <label for="firstName">Prénom du président :</label>
-        <input type="text" name="firstName" id="firstName" required>
-        <label for="lastName">Nom du président</label>
-        <input type="text" name="lastName" id="lastName" required>
-        <label for="country">Pays du président :</label>
-        <input type="text" name="country" id="country" required>
-        <label for="life">Vie du président :</label>
-        <input type="number" name="life" id="life" required>
-        <label for="strength">Force du président :</label>
-        <input type="number" name="strength" id="strength" required>
+        <div>
+            <?php foreach($firstName as $error): ?>
+            <p class="error"><?= $error ?></p>
+            <?php endforeach; ?>
+            <label for="firstName">Prénom du président :</label>
+            <input type="text" name="firstName" id="firstName" required>
+        </div>
+        <div>
+            <label for="lastName">Nom du président</label>
+            <input type="text" name="lastName" id="lastName" required>
+        </div>
+        <div>
+            <label for="country">Pays du président :</label>
+            <input type="text" name="country" id="country" required>
+        </div>
+        <div>
+            <label for="life">Vie du président :</label>
+            <input type="number" name="life" id="life" required>
+        </div>
+        <div>
+            <label for="strength">Force du président :</label>
+            <input type="number" name="strength" id="strength" required>
+        </div>
         <input type="submit" value="Envoyez">
     </form>
 </body>

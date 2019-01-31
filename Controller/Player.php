@@ -4,6 +4,7 @@ namespace Controller;
 
 class Player
 {
+
     /**
      * Nom du joueur
      *
@@ -49,5 +50,5 @@ class Player
     {
         return $this->president;
     }
-    
+
 }

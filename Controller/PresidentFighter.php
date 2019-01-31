@@ -2,8 +2,11 @@
 
 namespace Controller;
 
+use Form\PresidentValidator;
+
 class PresidentFighter
 {
+
     private $playerOne;
 
     private $playerTwo;
@@ -24,7 +27,7 @@ class PresidentFighter
         $presidentPlayerTwo = $this->playerTwo->getPresident();
         // On récupère le résultat de la méthode attack
         $winnerFight = $this->attack($presidentPlayerOne, $presidentPlayerTwo);
-        
+
         return $this->winnerIs($winnerFight);
     }
 
@@ -50,7 +53,7 @@ class PresidentFighter
         } elseif ($lifePresidentTwo <= 0) {
             $winnerFight = $presidentPlayerOne;
         }
-        
+
         // On retourne le gagnant du combat
         return $winnerFight;
     }
@@ -58,13 +61,15 @@ class PresidentFighter
     /**
      * Retourne le joureur gagnant
      *
-     * @param objet $winnerFight
-     * @return objet
+     * @param mixed $winnerFight
+     *
+     * @return array
      */
     private function winnerIs($winnerFight)
     {
         $winnerLastName = $winnerFight->getLastName();
-        if ($winnerLastName === $this->playerOne->getPresident()->getLastName()) {
+        if ($winnerLastName === $this->playerOne->getPresident()
+                ->getLastName()) {
             $winner = $this->playerOne;
         } else {
             $winner = $this->playerTwo;
@@ -76,8 +81,24 @@ class PresidentFighter
     public function newPresident()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->provider->addNewPresident($_POST['firstName'], $_POST['lastName'], $_POST['country'], $_POST['life'], $_POST['strength']);
+            $validator = new PresidentValidator();
+            $validationErrors = $validator->validate($_POST);
+
+            if (0 < $validationErrors['total_errors']) {
+                return $validationErrors;
+            }
+
+            $this->provider->addNewPresident($_POST['firstName'],
+                $_POST['lastName'], $_POST['country'], $_POST['life'],
+                $_POST['strength']);
         }
-        return [];
+        return [
+            'total_errors' => 0,
+            'firstName' => [],
+            'lastName' => [],
+            'country' => [],
+            'life' => [],
+            'strength' => [],
+        ];
     }
 }

@@ -1,14 +1,16 @@
 <?php
+
 namespace Http;
 
 class SimpleRequestParser
 {
+
     /**
      * Création d'un constante
      * assossiant une URL à une méthode d'un controller
      */
     const AVAILABLE_QUERIES = [
-    // Page d'accueil
+        // Page d'accueil
         // "/" => [
         //     "class" => "PresidentFighter",
         //     "method" => "acceuil",
