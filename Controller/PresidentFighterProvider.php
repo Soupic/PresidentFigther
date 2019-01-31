@@ -25,7 +25,7 @@ class PresidentFighterProvider
         int $strength
     ){
             $stmt = $this->dbh
-            ->prepare('INSERT MAUVAIS SQL INTO President (firstName, lastName, country, life, strength)
+            ->prepare('INSERT INTO President (firstName, lastName, country, life, strength)
              VALUES (:firstName, :lastName, :country, :life, :strength)');
             $stmt->bindParam(':firstName', $firstName, \PDO::PARAM_STR);
             $stmt->bindParam(':lastName', $lastName, \PDO::PARAM_STR);
@@ -35,7 +35,7 @@ class PresidentFighterProvider
             $success = $stmt->execute();
 
             if (!$success) {
-                var_dump($this->dbh->errorInfo());
+                var_dump($stmt->errorInfo());
             }
 
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 47.999998 47.999998" id="svg2" version="1.1" inkscape:version="0.48.4 r9939" width="100%" height="100%" sodipodi:docname="Favicon_Framasoft.svg">
+  <metadata id="metadata12">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs10"/>
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1080" inkscape:window-height="764" id="namedview8" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="11.625" inkscape:cx="23.999999" inkscape:cy="23.999999" inkscape:window-x="146" inkscape:window-y="100" inkscape:window-maximized="0" inkscape:current-layer="svg2"/>
+  <circle cx="490" cy="490" r="440" id="circle4" style="fill:none;stroke:#6a5687;stroke-width:100.00084085999999672;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" sodipodi:cx="490" sodipodi:cy="490" sodipodi:rx="440" sodipodi:ry="440" transform="scale(0.04897959,0.04897959)"/>
+  <path d="m 23.804082,10.53061 c -6.367347,0 -11.706123,4.45715 -13.077551,10.43266 l 6.416326,0 c 1.17551,-2.54694 3.722449,-4.31021 6.661225,-4.31021 4.065306,0 7.346938,3.28163 7.346938,7.34694 0,4.06531 -3.281632,7.34694 -7.346938,7.34694 -2.938776,0 -5.485715,-1.76327 -6.661225,-4.26123 l -6.416326,0 c 1.371428,5.92653 6.710204,10.38368 13.077551,10.38368 7.444898,0 13.469387,-6.02449 13.469387,-13.46939 0,-7.4449 -6.024489,-13.46939 -13.469387,-13.46939 z" id="path6" style="fill:#eb7e40;fill-opacity:1" inkscape:connector-curvature="0"/>
+</svg>

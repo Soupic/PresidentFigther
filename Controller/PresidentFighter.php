@@ -75,8 +75,7 @@ class PresidentFighter
 
     public function newPresident()
     {
-        if (isset($_POST) && !empty($_POST)) {
-            var_dump($_POST);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->provider->addNewPresident($_POST['firstName'], $_POST['lastName'], $_POST['country'], $_POST['life'], $_POST['strength']);
         }
         return [];
