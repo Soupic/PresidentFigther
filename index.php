@@ -19,19 +19,19 @@ $macron = new President("Emmanuel", "Macron", "France", 80, rand(5, 25));
 $trump = new President("Donald", "Trump", "Etats Unis", 80, rand(5, 25));
 $poutine = new President("Vladimir", "Poutine", "Russie", 90, rand(8, 27));
 
-// Appel de la connection à la base de donnée
-// $presidentFighterProvider = new PresidentFighterProvider(new \PDO(
-//     'mysql:host=localhost;dbname=presidentFighter;charset=utf8',
-//     "root",
-//     "dawan"
-// ));
+ // Appel de la connection à la base de donnée
+ $presidentFighterProvider = new PresidentFighterProvider(new \PDO(
+     'mysql:host=localhost;dbname=president_fighter;charset=utf8',
+     "pierre",
+     "secret"
+ ));
 
 // Instanciation du player
 $playerOne = new Player("Michel", $trump);
 $playerTwo = new Player("Pierre Emmanuel", $macron);
 
 // Démarrage du jeu
-$presidentFighter = new PresidentFighter($playerOne, $playerTwo, $presidentFighterProvider = null);
+$presidentFighter = new PresidentFighter($playerOne, $playerTwo, $presidentFighterProvider);
 
 
 // Début du jeu
