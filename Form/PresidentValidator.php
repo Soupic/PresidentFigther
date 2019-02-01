@@ -24,7 +24,7 @@ class PresidentValidator
         }
     }
 
-    private function validate(array &$data, array $presidentData)
+    private function validate(array &$data, array $presidentData): void
     {
         if (empty($presidentData['firstName'])) {
             $data['firstName'][] = 'Le prénom est obligatoire';
@@ -55,7 +55,5 @@ class PresidentValidator
                 $data['total_errors']++;
             }
         }
-
-        return $form;
     }
 }
