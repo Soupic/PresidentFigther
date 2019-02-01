@@ -19,6 +19,18 @@ class PresidentFighterProvider
             ->fetchAll();
     }
 
+    public function findWithId(int $id)
+    {
+        $stmt = $this->dbh->prepare(
+            'SELECT p.id, p.firstName, p.lastName, p.country, p.life, p.strength FROM President p WHERE p.id = :presidentId'
+        );
+        $stmt->bindValue(':presidentId', $id);
+        $stmt->execute();
+        return $stmt->fetch();
+
+
+    }
+
     public function addNewPresident(
         string $firstName,
         string $lastName,
@@ -39,5 +51,7 @@ class PresidentFighterProvider
         if (!$success) {
             var_dump($stmt->errorInfo());
         }
+
+        return $this->dbh->lastInsertId();
     }
 }

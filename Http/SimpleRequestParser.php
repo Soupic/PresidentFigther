@@ -26,30 +26,34 @@ class SimpleRequestParser
             "method" => "newPresident",
             "template" => "newForm",
         ],
+        "showPresident" => [
+            "class" => "PresidentFighter",
+            "method" => "showPresident",
+            "template" => "show",
+        ],
     ];
 
     public function getAction()
     {
         // On récuprère le paramètre passé en URL
-        if (isset($_GET["q"])) {
-            $query = $_GET["q"];
-        } else {
-            $query = "/";
-        }
+        // "/" est la valeur par défaut si $_GET["q"] est null
+        $query = $_GET["q"] ?? "/";
 
         foreach (self::AVAILABLE_QUERIES as $prefix => $queryConfig) {
             // var_dump("Strpos ",strpos($prefix, $query));
             if (strpos($prefix, $query) === 0) {
                 if (isset($_GET["arg"])) {
-                    // var_dup($_GET["q"]);
-                    // On fusionne dans un tableau assiciatif le contenu de $_GET
+                    // On fusionne dans un tableau associatif le contenu de $_GET
                     return array_merge($queryConfig, ["arg" => $_GET['arg']]);
                 } else {
-                    // var_dump($query);
                     return array_merge($queryConfig, ["arg" => ""]);
                 }
             }
         }
-        return 'Tu t\'est planté mec "404" ! (voix d\'Eddie Murphy)';
+        return [
+            "class" => "PresidentFighter",
+            "method" => "notFound",
+            "template" => "notFound",
+        ];
     }
 }

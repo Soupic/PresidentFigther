@@ -13,7 +13,7 @@ class PresidentFighter
 
     private $provider;
 
-    public function __construct(Player $playerOne, Player $playerTwo, $provider)
+    public function __construct(Player $playerOne, Player $playerTwo, PresidentFighterProvider $provider)
     {
         $this->playerOne = $playerOne;
         $this->playerTwo = $playerTwo;
@@ -106,10 +106,22 @@ class PresidentFighter
                 return $form;
             }
 
-            $this->provider->addNewPresident($_POST['firstName'],
+            $id = $this->provider->addNewPresident($_POST['firstName'],
                 $_POST['lastName'], $_POST['country'], $_POST['life'],
                 $_POST['strength']);
+
+            header('Location: /?q=showPresident&arg=' . $id);
+            http_response_code(303);
+            die;
         }
         return $form;
+    }
+
+    public function showPresident($presidentId)
+    {
+        $president = $this->provider->findWithId($presidentId);
+        return [
+            'president' => $president
+        ];
     }
 }

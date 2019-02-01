@@ -1,7 +1,7 @@
 <?php
 require 'autoload.php';
 
-// On appel toutes les classes que l'on à besoin
+// On appelle toutes les classes que l'on a besoin
 use Controller\President;
 use Controller\Player;
 use Controller\PresidentFighter;
